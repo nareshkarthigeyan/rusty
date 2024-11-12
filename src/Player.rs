@@ -1,9 +1,11 @@
+include!("Inventory.rs");
 struct Player {
     name : String,
     wallet : u64,
     bank_balance : u64,
     xp : u32,
     luck : u8,
+    inventory : Inventory,
 }
 
 impl Player {
@@ -14,6 +16,7 @@ impl Player {
             bank_balance: 0,
             xp: 0,
             luck: 1,
+            inventory : Inventory::create_inventory(),
         }
     }
 
