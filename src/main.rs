@@ -1,12 +1,30 @@
 include!("user.rs");
 include!("Mine.rs");
 include!("Player.rs");
+include!("Utils.rs");
 
+
+fn menu(player: &mut Player){
+    print!("m) Mine\n>> ");
+    std::io::stdout().flush().unwrap();
+    let choice = get_user_char();
+    match choice {
+        'm' => {
+            let mine : Mine = Mine::create_mine();
+            mine.enter(player);
+        },
+        _ => {
+            println!("Invalid Choice! Please try again!");
+        }
+    }
+    
+}
 fn main() {
     let name = String::from("Naresh Karthigeyan");
     let mut player : Player = Player::create_player(name);
-    for i in 1..=15000{
-        player.inventory.coal.increment_item_by(5);
-        println!("{} : {}", player.inventory.coal.name, player.inventory.coal.count);
-    }
+
+    println!("Entering menu:");
+    loop {
+        menu(&mut player);
+    }    
 }

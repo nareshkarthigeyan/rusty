@@ -6,6 +6,8 @@ struct Player {
     xp : u32,
     luck : u8,
     inventory : Inventory,
+    mine_level: u16,
+    times_mined: u16,
 }
 
 impl Player {
@@ -17,6 +19,8 @@ impl Player {
             xp: 0,
             luck: 1,
             inventory : Inventory::create_inventory(),
+            mine_level: 0,
+            times_mined: 0,
         }
     }
 

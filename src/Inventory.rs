@@ -1,4 +1,3 @@
-use std::fs::create_dir;
 
 struct Item {
     name: String,
@@ -29,6 +28,14 @@ impl Item {
     fn increment_item_by(&mut self, i : u32){
         self.count += i;
         self.total_count += i;
+    }
+
+    fn decrement_item_by(&mut self, i : u32){
+        if i <= self.count {
+            self.count -= i;
+        } else {
+            println!("Not enough {} in the inventory!", self.name);
+        }
     }
 }
 
